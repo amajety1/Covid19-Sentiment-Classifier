@@ -1,69 +1,88 @@
 
-# COVID-19 Twitter Sentiment Analysis
 
-This project involves analyzing the sentiment of tweets related to **COVID-19**. The goal is to classify the sentiment of tweets into positive, negative, or neutral categories using natural language processing (NLP) and machine learning techniques.
+# Covid19-Sentiment-Classifier
 
-## Project Overview
-The sentiment of COVID-19 related tweets is determined using **Logistic Regression**, a machine learning algorithm, and text preprocessing techniques like **CountVectorizer** and **TF-IDF**. The analysis provides insights into public sentiment regarding COVID-19 during different phases of the pandemic.
+This repository contains the code for a sentiment analysis project based on tweets related to COVID-19. The goal of this project is to analyze public sentiment surrounding the pandemic using natural language processing (NLP) techniques.
 
-### Key Steps:
-- **Data Collection**: Tweets related to COVID-19 are collected through the Twitter API.
-- **Text Preprocessing**: The text of the tweets is cleaned by removing handles, URLs, and unnecessary characters.
-- **Vectorization**: The text is transformed into numerical features using **CountVectorizer** and **TF-IDF Vectorizer**.
-- **Model Training**: A **Logistic Regression** model is trained to classify the sentiment of the tweets.
-- **Sentiment Prediction**: The trained model predicts the sentiment (positive, negative, or neutral) of new tweets.
+## Overview
+
+In this project, I utilized Python and popular machine learning libraries, such as Pandas, Matplotlib, Seaborn, and Scikit-learn, to clean, preprocess, and analyze Twitter data related to COVID-19. The data is analyzed to classify tweets into positive, negative, or neutral sentiments. The final model is deployed in a web application for real-time sentiment analysis.
 
 ## Table of Contents
+
+- [Project Description](#project-description)
+- [Dataset](#dataset)
 - [Installation](#installation)
+- [How to Run](#how-to-run)
 - [Usage](#usage)
-- [Data](#data)
-- [Model](#model)
-- [Evaluation](#evaluation)
+- [Contributing](#contributing)
 - [License](#license)
+
+## Project Description
+
+This project aims to explore public sentiment on Twitter related to COVID-19 by using various machine learning and NLP techniques. It includes:
+
+- Collecting tweet data via Twitter API.
+- Preprocessing the text (tokenization, stopword removal, etc.).
+- Analyzing the data for insights using visualizations.
+- Building a machine learning model to classify tweet sentiment.
+- Deploying the model on a web application using Flask.
+
+## Dataset
+
+The dataset for this project consists of tweets related to COVID-19, sourced from the Twitter API. The tweets have been labeled with sentiment categories: positive, negative, and neutral.
+
+### Sample of Dataset
+
+| Tweet Text                                        | Sentiment |
+| ------------------------------------------------ | --------- |
+| "COVID-19 is really affecting our lives."        | Negative  |
+| "Stay safe, everyone!"                           | Positive  |
+| "The world will recover from this."              | Neutral   |
 
 ## Installation
 
+To install the necessary dependencies, clone this repository and install the required libraries using `pip`.
+
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/amajety1/Covid19-Sentiment-Classifier.git
-   ```
-
-2. Navigate into the project directory:
-   ```bash
    cd Covid19-Sentiment-Classifier
    ```
 
+2. Install the required libraries:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## How to Run
+
+1. **Data Preprocessing**: The preprocessing steps are handled in the `preprocessing.py` file. This includes text cleaning, tokenization, and feature extraction.
+   
+2. **Model Training**: The `train_model.py` file trains the sentiment analysis model using Scikit-learn’s Naive Bayes classifier.
+
+3. **Web Application**: Run the Flask web application with the following command:
+
+   ```bash
+   python app.py
+   ```
+
+   This will start the web application at `http://localhost:5000`, where you can input tweets for real-time sentiment analysis.
 
 ## Usage
 
-###  Data Collection
-Tweets are available in CovidTweets.csv
+- **Input Tweets**: Enter a tweet in the web application's input field.
+- **Sentiment Prediction**: The model will classify the tweet as positive, negative, or neutral.
+- **Visualizations**: Explore sentiment trends over time, word clouds, and sentiment distribution in the analysis section.
 
+## Contributing
 
-## Model
-
-The model used for sentiment classification is **Logistic Regression**, a widely used machine learning algorithm for binary and multiclass classification problems. It is trained on the preprocessed and vectorized text data to classify tweets as:
-
-- **Positive Sentiment**
-- **Negative Sentiment**
-- **Neutral Sentiment**
-
-### Hyperparameters:
-- **Penalty**: `l1` (Lasso) and `l2` (Ridge) regularization
-- **Regularization Strength (C)**: Values like `100`, `10`, `1.0`, `0.1`, `0.01`
-
-## Evaluation
-
-The performance of the model can be evaluated using standard metrics like **accuracy**, **precision**, **recall**, and **F1-score**. You can calculate these using the following:
-
-```python
-from sklearn.metrics import classification_report
-print(classification_report(y_test, y_pred))
-```
+Feel free to contribute to this project! If you have suggestions or improvements, open an issue or create a pull request.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
